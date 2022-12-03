@@ -1,0 +1,8 @@
+;; using absolute paths for key locations is recommended
+{:users [{:pubkey "/home/fraburnham/.ssh/doorman.pub.der"
+          ;; generally a config will have only public keys (server side) or private keys (client side)
+          :privkey "/home/fraburnham/.ssh/doorman.der"
+          :name "fraburnham"}]
+ :action {:type :shell
+          :cmd ["touch" "afile"]}
+ :port 40000}
