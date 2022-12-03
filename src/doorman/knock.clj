@@ -11,7 +11,7 @@
           (fn (first coll)) i
           :else (recur (inc i) (rest coll)))))
 
-(defn knock
+(defn send
   [{:keys [users]} host port username]
   (let [socket (udp/socket (+ 50000 (rand-int 1000)) 5000)]
     ;; send the knock

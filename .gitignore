@@ -3,3 +3,6 @@
 .cpcache/
 .lsp/
 .nrepl-port
+*~
+classes/
+target/
