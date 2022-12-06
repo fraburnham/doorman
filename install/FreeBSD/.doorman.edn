@@ -1,0 +1,4 @@
+{:users [] ;; Don't forget to fill in the users! private keys for clients public keys for daemons
+ :action {:type :shell
+          :cmd ["doas" "/usr/home/_doorman/start-sshd.sh"]}
+ :port 40000}
