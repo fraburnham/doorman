@@ -23,11 +23,11 @@
 
 (defn handle-response
   [{:keys [action] :as config} socket {:keys [data] :as packet}]
+  (swap! challenges #(into {} (filter over-30s-ago %)))
   (let [{:keys [id uid response]} (msg/unpack-response data)
         pubkey (sign/read-public-key (get-in config [:users uid :pubkey]))
         data (.getBytes (@challenges id))]
     (swap! challenges dissoc id)
-    (swap! challenges #(into {} (filter over-30s-ago %)))
     (if (sign/verify pubkey data response)
       (do
         ;; TODO: log the result of the action
